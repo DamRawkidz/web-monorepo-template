@@ -49,7 +49,12 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:dev-server",
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "poc-monorepo:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/poc-monorepo/browser"
+      },
       "configurations": {
         "production": {
           "buildTarget": "poc-monorepo:build:production"
@@ -58,8 +63,9 @@
           "buildTarget": "poc-monorepo:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "production"
     },
+
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {

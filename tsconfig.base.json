@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@poc-monorepo/my-lib": ["libs/my-lib/src/index.ts"],
+      "@poc-monorepo/my-lib2": ["libs/my-lib2/src/index.ts"],
       "@poc-monorepo/orders": ["libs/orders/src/index.ts"],
       "@poc-monorepo/products": ["libs/products/src/index.ts"],
       "@poc-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"]
