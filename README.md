@@ -61,9 +61,24 @@ It will show tasks that you can run with Nx.
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
 
-nx run-many -t build
-npx http-server dist/apps/poc-monorepo/browser
-nx g @nx/angular:lib my-lib --directory=libs/my-lib --buildable
+- nx run-many -t build
+- npx http-server dist/apps/poc-monorepo/browser
+- nx g @nx/angular:lib my-lib --directory=libs/my-lib --buildable
+
+```
+ - list command
+ - npx nx list @nx/angular
+```
+
+```
+ - create app with standalone
+ - npx nx g @nx/angular:app main-app --directory=apps/main-app --standalone
+```
+
+```
+ - create library with buildable
+ - - nx g @nx/angular:lib my-lib --directory=libs/my-lib --buildable
+```
 
 source $(brew --prefix nvm)/nvm.sh
 nvm use 18

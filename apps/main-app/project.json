@@ -1,27 +1,27 @@
 {
-  "name": "inventory",
+  "name": "main-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/inventory/src",
+  "sourceRoot": "apps/main-app/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/inventory",
-        "index": "apps/inventory/src/index.html",
-        "main": "apps/inventory/src/main.ts",
+        "outputPath": "dist/apps/main-app",
+        "index": "apps/main-app/src/index.html",
+        "browser": "apps/main-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/inventory/tsconfig.app.json",
+        "tsConfig": "apps/main-app/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/inventory/public"
+            "input": "apps/main-app/public"
           }
         ],
-        "styles": ["apps/inventory/src/styles.css"],
+        "styles": ["apps/main-app/src/styles.css"],
         "scripts": []
       },
       "configurations": {
@@ -41,32 +41,34 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "main-app:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/main-app/browser"
+      },
       "configurations": {
         "production": {
-          "buildTarget": "inventory:build:production"
+          "buildTarget": "main-app:build:production"
         },
         "development": {
-          "buildTarget": "inventory:build:development"
+          "buildTarget": "main-app:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "production"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "inventory:build"
+        "buildTarget": "main-app:build"
       }
     },
     "lint": {
@@ -76,14 +78,15 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/inventory/jest.config.ts"
+        "jestConfig": "apps/main-app/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "inventory:build",
+        "buildTarget": "main-app:build",
         "port": 4200,
+        "staticFilePath": "dist/apps/main-app/browser",
         "spa": true
       }
     }

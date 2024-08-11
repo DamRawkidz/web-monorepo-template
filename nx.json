@@ -95,5 +95,5 @@
       "style": "css"
     }
   },
-  "defaultProject": "poc-monorepo"
+  "defaultProject": "main-app"
 }
