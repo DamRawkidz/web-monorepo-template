@@ -8,12 +8,16 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/main-app",
         "index": "apps/main-app/src/index.html",
         "browser": "apps/main-app/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/main-app/tsconfig.app.json",
         "assets": [
           {
@@ -21,7 +25,10 @@
             "input": "apps/main-app/public"
           }
         ],
-        "styles": ["apps/main-app/src/styles.css"],
+        "styles": [
+          "@angular/material/prebuilt-themes/azure-blue.css",
+          "apps/main-app/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -76,7 +83,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/main-app/jest.config.ts"
       }

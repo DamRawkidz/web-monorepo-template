@@ -84,7 +84,7 @@
     "@nx/angular:application": {
       "e2eTestRunner": "cypress",
       "linter": "eslint",
-      "style": "css",
+      "style": "scss",
       "unitTestRunner": "jest"
     },
     "@nx/angular:library": {
@@ -92,7 +92,7 @@
       "unitTestRunner": "jest"
     },
     "@nx/angular:component": {
-      "style": "css"
+      "style": "scss"
     }
   },
   "defaultProject": "main-app"

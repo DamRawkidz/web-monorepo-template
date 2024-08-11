@@ -77,7 +77,13 @@ It will show tasks that you can run with Nx.
 
 ```
  - create library with buildable
- - - nx g @nx/angular:lib my-lib --directory=libs/my-lib --buildable
+ - nx g @nx/angular:lib my-lib --directory=libs/my-lib --buildable
+```
+
+```
+ - isntall angular material
+ - npm i @angular/material
+ - npx nx g @angular/material:ng-add --project=main-app
 ```
 
 source $(brew --prefix nvm)/nvm.sh

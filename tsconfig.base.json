@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
+    // "allowImportingTsExtensions":true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -19,7 +20,7 @@
       "@poc-monorepo/my-lib2": ["libs/my-lib2/src/index.ts"],
       "@poc-monorepo/orders": ["libs/orders/src/index.ts"],
       "@poc-monorepo/products": ["libs/products/src/index.ts"],
-      "@poc-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"]
+      "@poc-monorepo/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

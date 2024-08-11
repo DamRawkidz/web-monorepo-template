@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'poc-monorepo',
+  displayName: 'shared',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/poc-monorepo',
+  coverageDirectory: '../../coverage/libs/shared',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
