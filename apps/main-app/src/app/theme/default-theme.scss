@@ -1,0 +1,114 @@
+@use '@angular/material' as mat;
+
+$default-primary-map: (
+  50: #e6f4fa,
+  100: #c0e4f2,
+  200: #96d2e9,
+  300: #6cc0e0,
+  400: #4db3d9,
+  500: #007aff,
+  600: #289dcd,
+  700: #2293c7,
+  800: #1c8ac1,
+  900: #1179b6,
+  A100: #e5f4ff,
+  A200: #b2e0ff,
+  A400: #7fccff,
+  A700: #65c1ff,
+  0: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$default-dark-map: (
+  50: #e4e4e5,
+  100: #bcbcbf,
+  200: #8f9094,
+  300: #2b2e36,
+  400: #414248,
+  500: #1f2128,
+  600: #1b1d24,
+  700: #17181e,
+  800: #121418,
+  900: #0a0b0f,
+  A100: #548dff,
+  A200: #216bff,
+  A400: #004fed,
+  A700: #1f2128,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$default-red-map: (
+  50: #fbebf0,
+  100: #f5cedb,
+  200: #efadc3,
+  300: #e88caa,
+  400: #e37398,
+  500: #de5a86,
+  600: #da527e,
+  700: #d54873,
+  800: #d13f69,
+  900: #c82e56,
+  A100: #ffffff,
+  A200: #ffd8e1,
+  A400: #ffa5bb,
+  A700: #ff8ba7,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$default-theme-primary: mat.m2-define-palette($default-primary-map, 500);
+$default-theme-accent: mat.m2-define-palette($default-dark-map, 500);
+$default-theme-warn: mat.m2-define-palette($default-red-map);
+// $default-theme-primary, $default-theme-accent, $default-theme-warn
+$default-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      primary: $default-theme-primary,
+      accent: $default-theme-accent,
+      warn: $default-theme-warn,
+    ),
+  )
+);

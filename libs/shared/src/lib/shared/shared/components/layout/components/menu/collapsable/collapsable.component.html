@@ -1,0 +1,20 @@
+<div class="se_item_warpper">
+  <div (click)="toggleCollapsable()" [ngClass]=" item?.ischildActive  ? 'child_active' : '' ">
+    <a class="se_item text-white hover:cursor-pointer">
+      {{ item?.title }}
+      <mat-icon class="se_icon" [ngStyle]="{'transform': isCollapsed ? '': 'rotate(360deg)'}">expand_more</mat-icon>
+    </a>
+  </div>
+
+  <div class="se_item_children" *ngIf="!isCollapsed" @expandCollapse>
+    <ng-container *ngFor="let menuChilden of item?.children; trackBy: identify">
+      <ng-container *ngIf="menuChilden.type === 'basic'">
+        <lib-basic-menu [item]="menuChilden"></lib-basic-menu>
+      </ng-container>
+      <ng-container *ngIf="menuChilden.type === 'collapsable'">
+        <lib-collapsable [item]="menuChilden"></lib-collapsable>
+      </ng-container>
+    </ng-container>
+  </div>
+
+</div>

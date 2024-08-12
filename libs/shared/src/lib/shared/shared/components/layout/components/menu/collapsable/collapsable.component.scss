@@ -1,0 +1,46 @@
+.child_active {
+  background-color: red;
+}
+.child_not_active {
+  background-color: green;
+}
+.se_item_warpper {
+    margin: 0 12px;
+}
+
+.se_item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.se_icon {
+    transform: rotate(272deg);
+    transition: transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1), color 375ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+
+.se_item_expanded {
+
+}
+
+.se_item_collapsed {
+
+}
+
+.se_item_active {
+    background-color: rgb(255 255 255 / 0.12);
+    @apply text-white;
+}
+
+.se_item_children {
+
+}

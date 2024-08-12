@@ -1,0 +1,26 @@
+<div class="flex flex-col bg-gray-900" style="min-width: 280px;max-width: 280px;height: 100%;">
+  <div class="flex items-center justify-between p-3" style="max-height: 72px;">
+    <picture class="rounded-full">
+      <span>iamge here</span>
+      <!-- <source  type="image/webp" srcset="assets/images/logo/logo.webp">
+            <source type="image/jpeg" srcset="assets/images/logo/logo.png" style="width: 50px;height: 50px;">
+            <img class="rounded-full" src="assets/images/logo/logo.png" style="width: 50px;height: 50px;"> -->
+    </picture>
+    &nbsp;
+    <div class="flex flex-col">
+      <span style="color: #045A29">text here</span>
+      <!-- <span style="color: #DBA10C">Bunditpatanasilpa Institute</span> -->
+    </div>
+  </div>
+  <!-- menu here -->
+  <ng-container *ngFor="let menu of menus">
+    <ng-container *ngIf="menu?.type === 'basic'">
+      <lib-basic-menu [item]="menu"></lib-basic-menu>
+    </ng-container>
+    <ng-container *ngIf="menu?.type === 'collapsable' ">
+      <lib-collapsable [item]="menu"></lib-collapsable>
+    </ng-container>
+  </ng-container>
+
+  <!-- menu here -->
+</div>

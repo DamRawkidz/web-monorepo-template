@@ -1,0 +1,9 @@
+<div class="se_item_warpper">
+    <a class="se_item text-white hover:cursor-pointer"
+            *ngIf="item?.link && !item?.externalLink && !item?.function && !item?.disabled"
+            [ngClass]="{'fuse-vertical-navigation-item-active-forced': item?.active}"
+            [routerLink]="[item?.link]"
+            [routerLinkActive]="'se_item_active'">
+        {{ item?.title }}
+    </a>
+</div>

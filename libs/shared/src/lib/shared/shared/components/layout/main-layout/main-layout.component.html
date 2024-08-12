@@ -1,0 +1,14 @@
+<div class="flex min-h-full">
+  <div class="flex flex-row w-full">
+    <div style="transition: 200ms;" [ngStyle]="{'margin-left': isExpanedMenu ? '-280px':'0px'}">
+      <lib-menu-bar [menus]="menu"></lib-menu-bar>
+    </div>
+    <div class="flex flex-col w-full h-full" id="main_container">
+      <lib-tool-bar (expanedMenu)="isExpanedMenu = $event"></lib-tool-bar>
+      <div class="p-4 m-4 shadow-lg">
+        <router-outlet *ngIf="true"></router-outlet>
+      </div>
+    </div>
+  </div>
+
+</div>

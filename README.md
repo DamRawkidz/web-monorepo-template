@@ -76,6 +76,11 @@ It will show tasks that you can run with Nx.
 ```
 
 ```
+ - create component
+ - nx g @nx/angular:component my-component
+```
+
+```
  - create library with buildable
  - nx g @nx/angular:lib my-lib --directory=libs/my-lib --buildable
 ```
