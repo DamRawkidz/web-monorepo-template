@@ -1,60 +1,63 @@
-// import { Injectable } from '@angular/core';
-// import { KeycloakService } from 'keycloak-angular';
-// import { KeycloakTokenParsed, KeycloakProfile } from 'keycloak-js';
-// import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { environment } from 'apps/main-app/src/environments/environment';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class KeyclaokService {
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakTokenParsed, KeycloakProfile } from 'keycloak-js';
 
-//   constructor(private keycloakService: KeycloakService) {
 
-//   }
+@Injectable({
+  providedIn: 'root'
+})
+export class KeyclaokService {
 
-//   public getLoggedUser(): KeycloakTokenParsed | undefined {
-//     try {
-//       const userDetails: KeycloakTokenParsed | undefined = this.keycloakService.getKeycloakInstance()
-//         .idTokenParsed;
-//       return userDetails;
-//     } catch (e) {
-//       console.error("Exception", e);
-//       return undefined;
-//     }
-//   }
+  constructor(private keycloakService: KeycloakService) {
 
-//   public isLoggedIn() {
-//     return this.keycloakService.isLoggedIn();
-//   }
+  }
 
-//   public loadUserProfile() : Promise<KeycloakProfile> {
-//     return this.keycloakService.loadUserProfile();
-//   }
+  public getLoggedUser(): KeycloakTokenParsed | undefined {
+    try {
+      const userDetails: KeycloakTokenParsed | undefined = this.keycloakService.getKeycloakInstance()
+        .idTokenParsed;
+      return userDetails;
+    } catch (e) {
+      console.error("Exception", e);
+      return undefined;
+    }
+  }
 
-//   public login() : void {
-//     this.keycloakService.login();
-//   }
+  public isLoggedIn() {
+    return this.keycloakService.isLoggedIn();
+  }
 
-//   public logout() : void {
-//     // localStorage.removeItem(APP_KEY_LOCALSTORAGE.CURRENT_URL)
-//     this.keycloakService.logout(environment.logoutRedirect);
+  public loadUserProfile(): Promise<KeycloakProfile> {
+    return this.keycloakService.loadUserProfile();
+  }
 
-//     // this.keycloakService.logout();
-//   }
+  public login(): void {
+    this.keycloakService.login();
+  }
 
-//   public redirectToProfile(): void {
-//     this.keycloakService.getKeycloakInstance().accountManagement();
-//   }
+  public logout(): void {
+    // localStorage.removeItem(APP_KEY_LOCALSTORAGE.CURRENT_URL)
+    this.keycloakService.logout(environment.logoutRedirect);
 
-//   public getRoles(): string[] {
-//     return this.keycloakService.getUserRoles();
-//   }
+    // this.keycloakService.logout();
+  }
 
-//   public getToken(): string {
-//     return this.keycloakService.getKeycloakInstance().token
-//   }
+  public redirectToProfile(): void {
+    this.keycloakService.getKeycloakInstance().accountManagement();
+  }
 
-//   // public keycloakLoginOptions: KeycloakLoginOptions = {
-//   //   redirectUri: environment.logoutRedirect
-//   // }
-// }
+  public getRoles(): string[] {
+    return this.keycloakService.getUserRoles();
+  }
+
+  public getToken(): string | undefined {
+    return this.keycloakService.getKeycloakInstance().token
+  }
+
+  // public keycloakLoginOptions: KeycloakLoginOptions = {
+  //   redirectUri: environment.logoutRedirect
+  // }
+}

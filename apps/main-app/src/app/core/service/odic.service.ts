@@ -1,52 +1,54 @@
-// import { Injectable } from '@angular/core';
-// import { User, UserManager, UserManagerSettings } from 'oidc-client';
-// import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { environment } from 'apps/main-app/src/environments/environment';
+import { User, UserManager, UserManagerSettings } from 'oidc-client';
 
 
-// function getClientSettings(): UserManagerSettings {
-//   return environment.clientSettings;
-// }
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class OdicService {
 
-//   public manager = new UserManager(getClientSettings());
+function getClientSettings(): UserManagerSettings {
+  return environment.clientSettings;
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class OdicService {
 
-//   public user: User = null;
+  public manager = new UserManager(getClientSettings());
 
-//   constructor() {
-//         this.manager.getUser().then(user => {
-//           this.user = user;
-//         });
-//    }
+  public user: User | null = null;
 
-//    isLoggedIn(): boolean {
-//     return this.user != null && !this.user.expired;
-//   }
+  constructor() {
+    this.manager.getUser().then(user => {
+      this.user = user;
+    });
+  }
 
-//   getClaims(): any {
-//     return this.user.profile;
-//   }
+  isLoggedIn(): boolean {
+    return this.user != null && !this.user.expired;
+  }
 
-//   getAuthorizationHeaderValue(): string {
-//     return `${this.user.token_type} ${this.user.access_token}`;
-//   }
+  getClaims(): any {
+    return this.user?.profile;
+  }
 
-//   startAuthentication(): Promise<void> {
-//     return this.manager.signinRedirect();
-//   }
+  getAuthorizationHeaderValue(): string {
+    return `${this.user?.token_type} ${this.user?.access_token}`;
+  }
 
-//   completeAuthentication(): Promise<void> {
-//     return this.manager.signinRedirectCallback().then(user => {
-//         console.log(user);
-//         this.user = user;
-//     }).catch(err => {
-//       console.log('error');
-//     });
-//   }
+  startAuthentication(): Promise<void> {
+    return this.manager.signinRedirect();
+  }
 
-//   logout(){
-//     this.manager.signoutRedirect({id_token_hint: this.user.id_token}).then(res => console.log(res))
-//   }
-// }
+  completeAuthentication(): Promise<void> {
+    return this.manager.signinRedirectCallback().then(user => {
+      console.log(user);
+      this.user = user;
+    }).catch(err => {
+      console.log('error');
+    });
+  }
+
+  logout() {
+    this.manager.signoutRedirect({ id_token_hint: this.user?.id_token }).then(res => console.log(res))
+  }
+}

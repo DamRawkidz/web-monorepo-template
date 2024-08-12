@@ -1,5 +1,11 @@
 // import { Injectable } from '@angular/core';
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { ApptokenService } from '../service/apptoken.service';
+import { AuthenService, SSO } from '../service/authen.service';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { environment } from 'apps/main-app/src/environments/environment';
+import { OdicService } from '../service/odic.service';
 // import { inject } from '@angular/core';
 // import { Observable } from 'rxjs';
 // import { AuthenService, SSO } from '../service/authen.service';
@@ -21,36 +27,36 @@ export const tokenIntercepter: HttpInterceptorFn = (
   request: HttpRequest<unknown>,
   next: HttpHandlerFn
 ) => {
-  // let authenSV = inject(AuthenService)
-  // let appToken = inject(ApptokenService)
+  // const authenSV = inject(AuthenService)
+  // const appToken = inject(ApptokenService)
 
-  // let clonseRequest = request.clone({
-  //   setHeaders:{
-  //     Authorization: createHedaer(request.url)
-  //   }
-  // })
+  const clonseRequest = request.clone({
+    setHeaders: {
+      Authorization: createHedaer(request.url)
+    }
+  })
 
-  // return next(clonseRequest)
-  return next(request)
+  return next(clonseRequest)
+  // return next(request)
 }
 
 
 
-// const createHedaer = (url: string) => {
-//   let authenSV = inject(AuthenService)
-//   let odicSV = inject(OdicService)
-//   let appToken = inject(ApptokenService)
-//   let useSso  = environment.useSSO
+const createHedaer = (url: string) => {
+  const authenSV = inject(AuthenService)
+  const odicSV = inject(OdicService)
+  const appToken = inject(ApptokenService)
+  const useSso = environment.useSSO
 
-//   if(url.includes('app_tokens') && useSso == SSO.OPENID){
-//     return odicSV.getAuthorizationHeaderValue()
-//   }
+  if (url.includes('app_tokens') && useSso == SSO.OPENID) {
+    return odicSV.getAuthorizationHeaderValue()
+  }
 
-//   if(url.includes('key_cloak_app_tokens') && useSso == SSO.KEYCLOAK) {
-//     return `Bearer ${authenSV.getToken()}`
-//   }
+  if (url.includes('key_cloak_app_tokens') && useSso == SSO.KEYCLOAK) {
+    return `Bearer ${authenSV.getToken()}`
+  }
 
-//   return `Bearer ${appToken.getToken()}`
+  return `Bearer ${appToken.getToken()}`
 
 
-// }
+}
