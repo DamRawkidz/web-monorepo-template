@@ -86,5 +86,10 @@ It will show tasks that you can run with Nx.
  - npx nx g @angular/material:ng-add --project=main-app
 ```
 
+```
+ - set up Talwind
+ - nx g @nx/angular:setup-tailwind main-app --stylesEntryPoint=apps/main-app/src/styles.scss
+```
+
 source $(brew --prefix nvm)/nvm.sh
 nvm use 18
