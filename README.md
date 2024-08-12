@@ -96,5 +96,10 @@ It will show tasks that you can run with Nx.
  - nx g @nx/angular:setup-tailwind main-app --stylesEntryPoint=apps/main-app/src/styles.scss
 ```
 
+```
+ - set up Ngrx
+ - nx g @nx/angular:setup-tailwind main-app --stylesEntryPoint=apps/main-app/src/styles.scss
+```
+
 source $(brew --prefix nvm)/nvm.sh
 nvm use 18
