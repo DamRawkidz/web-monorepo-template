@@ -60,7 +60,8 @@
       "options": {
         "buildTarget": "main-app:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/main-app/browser"
+        "staticFilePath": "dist/apps/main-app/browser",
+        "proxyUrl": "http://localhost:4200?"
       },
       "configurations": {
         "production": {
