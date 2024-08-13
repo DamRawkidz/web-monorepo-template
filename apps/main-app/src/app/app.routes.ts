@@ -16,6 +16,11 @@ export const appRoutes: Route[] = [
   {
     path: 'app',
     component: MainAppLayoutComponent,
-    // children: []
+    children: [
+      {
+        path: 'fo',
+        loadChildren: () => import("@poc-monorepo/featureone").then(m => m.ROUTES_FEATURE_ONE)
+      }
+    ]
   }
 ];

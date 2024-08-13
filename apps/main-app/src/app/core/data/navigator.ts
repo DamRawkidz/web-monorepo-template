@@ -7,7 +7,7 @@ export const routes: SeItem[] = [
     title: 'Example',
     type: 'basic',
     icon: 'description',
-    link: '/app/example',
+    link: '/app/fo',
     children: []
   },
   {
