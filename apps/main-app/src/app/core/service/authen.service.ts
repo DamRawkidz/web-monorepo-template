@@ -46,22 +46,17 @@ export class AuthenService {
     }
   }
 
-  getToken(): string | undefined {
+  getToken(): any {
     switch (environment.useSSO) {
       case 1:
         return this.odic?.user?.access_token
       case 2:
         return this.keycloakSV.getKeycloakInstance().token
-        break
-
-      default:
-
-        break
     }
   }
 
 
-  isLoggin() {
+  isLoggin(): any {
     switch (environment.useSSO) {
       case 1:
         return this.odic.isLoggedIn()
@@ -91,7 +86,7 @@ export class AuthenService {
   }
 
 
-  loaduser() {
+  loaduser(): any {
     switch (environment.useSSO) {
       case 1: return from(this.odic.manager.signinRedirectCallback())
       case 2: return from(this.keycloakSV.loadUserProfile())
